@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:safe_school_game/game_list.dart';
 import 'package:safe_school_game/home.dart';
 
 void main() {
@@ -16,7 +17,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      initialRoute: '/',
+      routes: <String, WidgetBuilder>{
+        '/': (context) => const HomePage(),
+        '/games': (context) => const GameList(),
+      },
     );
   }
 }

@@ -1,14 +1,88 @@
-import 'dart:math';
+import 'dart:async';
 
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final GlobalKey<ScaffoldMessengerState> _scaffoldMessengerKey =
+      GlobalKey<ScaffoldMessengerState>();
+
+  late ConnectivityResult _connectionStatus;
+
+  @override
+  void initState() {
+    super.initState();
+    initConnectivity();
+    Connectivity().onConnectivityChanged.listen((ConnectivityResult result) {
+      setState(() {
+        _showDialogConnectivity(result);
+      });
+    });
+  }
+
+  Future<void> initConnectivity() async {
+    final connectivityResult = await Connectivity().checkConnectivity();
+    if (!mounted) {
+      return;
+    }
+    setState(() {
+      _connectionStatus = connectivityResult;
+    });
+  }
+
+  void _showDialogConnectivity(ConnectivityResult result) {
+    if (result == ConnectivityResult.none) {
+      _dialogConnection(context);
+    }
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  Future<void> _dialogConnection(BuildContext context) {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return WillPopScope(
+          onWillPop: () async {
+            return false;
+          },
+          child: AlertDialog(
+            title: const Text('No Internet'),
+            content: const Text(
+              'Periksa Jaringan Internet anda.',
+            ),
+            actions: <Widget>[
+              TextButton(
+                style: TextButton.styleFrom(
+                  textStyle: Theme.of(context).textTheme.labelLarge,
+                ),
+                child: const Text('Tutup'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return ScaffoldMessenger(
+      key: _scaffoldMessengerKey,
       child: SafeArea(
         child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
           Container(
@@ -39,17 +113,68 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
-              Container(
-                padding: const EdgeInsets.only(left: 24, right: 24, top: 120),
-                child: AutoSizeText(
-                  "Selamat datang di permainan sekolah aman".toUpperCase(),
-                  style: const TextStyle(
-                      fontFamily: "Monserrat",
+              Column(
+                children: [
+                  Container(
+                    padding:
+                        const EdgeInsets.only(left: 24, right: 24, top: 120),
+                    child: AutoSizeText(
+                      "Selamat datang di permainan sekolah aman".toUpperCase(),
+                      style: const TextStyle(
+                          fontFamily: "Monserrat",
+                          color: Colors.white,
+                          fontSize: 36.0,
+                          decoration: TextDecoration.none),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    width: 100.0,
+                    height: 4.0,
+                    color: const Color(0xFFFAAF40),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.symmetric(
+                        horizontal: 30.0, vertical: 16.0),
+                    padding: const EdgeInsets.all(16.0),
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10),
+                      ),
                       color: Colors.white,
-                      fontSize: 36.0,
-                      decoration: TextDecoration.none),
-                  textAlign: TextAlign.center,
-                ),
+                    ),
+                    child: const AutoSizeText(
+                      "Selamat Datang! \n\nYuk, jelajahi permainan seru untuk belajar mengenai Kesiapsiagaan Bencana. ",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 14.0,
+                          fontFamily: "Monserrat",
+                          decoration: TextDecoration.none,
+                          color: Colors.black),
+                    ),
+                  ),
+                  TextButton(
+                      onPressed: () => Navigator.pushNamed(context, '/games'),
+                      style: TextButton.styleFrom(
+                        backgroundColor: const Color(0xFFFAAF40),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(
+                              20), // Adjust the value as needed
+                        ),
+                      ),
+                      child: const SizedBox(
+                        width: 180,
+                        child: AutoSizeText(
+                          "Pilih Permainan",
+                          style: TextStyle(
+                              color: Colors.black, fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.center,
+                        ),
+                      ))
+                ],
               ),
             ],
           ),
@@ -61,6 +186,17 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ),
+          const AutoSizeText(
+            "© 2023 Yayasan Plan International Indonesia",
+            style: TextStyle(
+                fontSize: 12.0,
+                fontFamily: "Monserrat",
+                decoration: TextDecoration.none,
+                color: Colors.white),
+          ),
+          const SizedBox(
+            height: 10,
+          )
         ]),
       ),
     );

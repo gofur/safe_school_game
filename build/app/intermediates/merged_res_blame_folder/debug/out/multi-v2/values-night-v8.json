@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/gofur/projects/safe_school_game/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
+            "outputFile": "/Users/abdulghapur/Project/Flutter/safe_school_game/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "/Users/gofur/projects/safe_school_game/android/app/src/main/res/values-night/styles.xml",
+                    "source": "/Users/abdulghapur/Project/Flutter/safe_school_game/android/app/src/main/res/values-night/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",

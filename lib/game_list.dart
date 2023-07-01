@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -201,16 +202,9 @@ class _HorizontalState extends State<Horizontal> {
                     onTap: () {
                       _controller.animateToItem(realIndex);
                     },
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        boxShadow: kElevationToShadow[2],
-                        image: DecorationImage(
-                          image: NetworkImage(kDemoImages[itemIndex]),
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                    ),
+                    child: CachedNetworkImage(imageUrl: kDemoImages[itemIndex], placeholder: (context, url) =>
+                           const SizedBox(height: 6,
+                            child: CircularProgressIndicator()),)
                   ),
                 );
               },

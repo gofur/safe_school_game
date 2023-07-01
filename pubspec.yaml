@@ -33,6 +33,8 @@ dependencies:
   # Thirdparty plugins
   auto_size_text: ^3.0.0
   connectivity_plus: ^3.0.6
+  infinite_carousel: ^1.0.2
+  cached_network_image: ^3.2.0
 
 
   # The following adds the Cupertino Icons font to your application.

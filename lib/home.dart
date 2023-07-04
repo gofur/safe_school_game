@@ -85,7 +85,7 @@ class _HomePageState extends State<HomePage> {
       key: _scaffoldMessengerKey,
       child: SafeArea(
         child: SizedBox(
-           height: double.infinity,
+          height: double.infinity,
           child: ListView(children: [
             Container(
               color: Colors.white,
@@ -121,7 +121,8 @@ class _HomePageState extends State<HomePage> {
                       padding:
                           const EdgeInsets.only(left: 24, right: 24, top: 120),
                       child: AutoSizeText(
-                        "Selamat datang di permainan sekolah aman".toUpperCase(),
+                        "Selamat datang di permainan sekolah aman"
+                            .toUpperCase(),
                         style: const TextStyle(
                             fontFamily: "Veneer",
                             color: Colors.white,
@@ -172,7 +173,8 @@ class _HomePageState extends State<HomePage> {
                           child: AutoSizeText(
                             "Pilih Permainan",
                             style: TextStyle(
-                                color: Colors.black, fontWeight: FontWeight.bold),
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
                             textAlign: TextAlign.center,
                           ),
                         ))
@@ -180,16 +182,9 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            Container(
-              color: const Color(0xFFE51C8B),
-              child: const SizedBox(
-                width: double.infinity,
-              ),
-            ),
-     
-            const Padding(
+            Padding(
               padding: EdgeInsets.symmetric(vertical: 24.0),
-              child:  Center(
+              child: Center(
                 child: AutoSizeText(
                   "© 2023 Yayasan Plan International Indonesia",
                   style: TextStyle(
@@ -200,7 +195,6 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-          
           ]),
         ),
       ),

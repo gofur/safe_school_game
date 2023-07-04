@@ -28,21 +28,23 @@ class GameList extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16.0),
                 child: Container(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only(
                         topRight: Radius.circular(50),
                         bottomRight: Radius.circular(50)),
                     color: Color(0xFFE51C8B),
                   ),
-                  child: AutoSizeText(
-                    "Permainan Pilihan".toUpperCase(),
-                    style: const TextStyle(
-                        fontFamily: "Monserrat",
-                        color: Colors.white,
-                        fontSize: 24.0,
-                        decoration: TextDecoration.none),
-                    textAlign: TextAlign.center,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top:8.0),
+                    child: AutoSizeText(
+                      "Permainan Pilihan".toUpperCase(),
+                      style: const TextStyle(
+                          fontFamily: "Veneer",
+                          color: Colors.white,
+                          fontSize: 30.0,
+                          decoration: TextDecoration.none),
+                    ),
                   ),
                 ),
               ),
@@ -55,7 +57,7 @@ class GameList extends StatelessWidget {
                       color: Color(0xFF2D74B6),
                       fontSize: 24.0,
                       decoration: TextDecoration.none),
-                  textAlign: TextAlign.center,
+                  textAlign: TextAlign.left,
                 ),
               ),
               const SizedBox(
@@ -70,7 +72,7 @@ class GameList extends StatelessWidget {
                       color: Colors.black,
                       fontSize: 16.0,
                       decoration: TextDecoration.none),
-                  textAlign: TextAlign.center,
+                  textAlign: TextAlign.left,
                 ),
               ),
               const Horizontal(),

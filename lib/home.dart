@@ -84,120 +84,125 @@ class _HomePageState extends State<HomePage> {
     return ScaffoldMessenger(
       key: _scaffoldMessengerKey,
       child: SafeArea(
-        child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-          Container(
-            color: Colors.white,
-            padding: const EdgeInsets.only(top: 80, bottom: 0.0),
-            child: const AspectRatio(
-              aspectRatio: 6 / 1,
-              child: Image(
-                image: AssetImage(
-                  'assets/images/logo.png',
+        child: SizedBox(
+           height: double.infinity,
+          child: ListView(children: [
+            Container(
+              color: Colors.white,
+              padding: const EdgeInsets.only(top: 80, bottom: 0.0),
+              child: const AspectRatio(
+                aspectRatio: 6 / 1,
+                child: Image(
+                  image: AssetImage(
+                    'assets/images/logo.png',
+                  ),
+                  width: 10,
+                  height: 10,
                 ),
-                width: 10,
-                height: 10,
               ),
             ),
-          ),
-          Stack(
-            children: [
-              Container(
-                color: Colors.white,
-                child: Center(
-                  child: CustomPaint(
-                    painter: CurvePainter(),
-                    child: const Center(
-                        child: Padding(
-                      padding: EdgeInsets.only(top: 140.0),
-                    )),
+            Stack(
+              children: [
+                Container(
+                  color: Colors.white,
+                  child: Center(
+                    child: CustomPaint(
+                      painter: CurvePainter(),
+                      child: const Center(
+                          child: Padding(
+                        padding: EdgeInsets.only(top: 120.0),
+                      )),
+                    ),
                   ),
                 ),
-              ),
-              Column(
-                children: [
-                  Container(
-                    padding:
-                        const EdgeInsets.only(left: 24, right: 24, top: 120),
-                    child: AutoSizeText(
-                      "Selamat datang di permainan sekolah aman".toUpperCase(),
-                      style: const TextStyle(
-                          fontFamily: "Monserrat",
-                          color: Colors.white,
-                          fontSize: 36.0,
-                          decoration: TextDecoration.none),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    width: 100.0,
-                    height: 4.0,
-                    color: const Color(0xFFFAAF40),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.symmetric(
-                        horizontal: 30.0, vertical: 16.0),
-                    padding: const EdgeInsets.all(16.0),
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(10),
+                Column(
+                  children: [
+                    Container(
+                      padding:
+                          const EdgeInsets.only(left: 24, right: 24, top: 120),
+                      child: AutoSizeText(
+                        "Selamat datang di permainan sekolah aman".toUpperCase(),
+                        style: const TextStyle(
+                            fontFamily: "Veneer",
+                            color: Colors.white,
+                            fontSize: 38.0,
+                            decoration: TextDecoration.none),
+                        textAlign: TextAlign.center,
                       ),
-                      color: Colors.white,
                     ),
-                    child: const AutoSizeText(
-                      "Selamat Datang! \n\nYuk, jelajahi permainan seru untuk belajar mengenai Kesiapsiagaan Bencana. ",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontSize: 14.0,
-                          fontFamily: "Monserrat",
-                          decoration: TextDecoration.none,
-                          color: Colors.black),
+                    const SizedBox(
+                      height: 10,
                     ),
-                  ),
-                  TextButton(
-                      onPressed: () => Navigator.pushNamed(context, '/games'),
-                      style: TextButton.styleFrom(
-                        backgroundColor: const Color(0xFFFAAF40),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                              20), // Adjust the value as needed
+                    Container(
+                      width: 100.0,
+                      height: 4.0,
+                      color: const Color(0xFFFAAF40),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.symmetric(
+                          horizontal: 30.0, vertical: 16.0),
+                      padding: const EdgeInsets.all(16.0),
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
                         ),
+                        color: Colors.white,
                       ),
-                      child: const SizedBox(
-                        width: 180,
-                        child: AutoSizeText(
-                          "Pilih Permainan",
-                          style: TextStyle(
-                              color: Colors.black, fontWeight: FontWeight.bold),
-                          textAlign: TextAlign.center,
+                      child: const AutoSizeText(
+                        "Selamat Datang! \n\nYuk, jelajahi permainan seru untuk belajar mengenai Kesiapsiagaan Bencana. ",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 14.0,
+                            fontFamily: "Monserrat",
+                            decoration: TextDecoration.none,
+                            color: Colors.black),
+                      ),
+                    ),
+                    TextButton(
+                        onPressed: () => Navigator.pushNamed(context, '/games'),
+                        style: TextButton.styleFrom(
+                          backgroundColor: const Color(0xFFFAAF40),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(
+                                20), // Adjust the value as needed
+                          ),
                         ),
-                      ))
-                ],
-              ),
-            ],
-          ),
-          Expanded(
-            child: Container(
+                        child: const SizedBox(
+                          width: 180,
+                          child: AutoSizeText(
+                            "Pilih Permainan",
+                            style: TextStyle(
+                                color: Colors.black, fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.center,
+                          ),
+                        ))
+                  ],
+                ),
+              ],
+            ),
+            Container(
               color: const Color(0xFFE51C8B),
               child: const SizedBox(
                 width: double.infinity,
               ),
             ),
-          ),
-          const AutoSizeText(
-            "© 2023 Yayasan Plan International Indonesia",
-            style: TextStyle(
-                fontSize: 12.0,
-                fontFamily: "Monserrat",
-                decoration: TextDecoration.none,
-                color: Colors.white),
-          ),
-          const SizedBox(
-            height: 10,
-          )
-        ]),
+     
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 24.0),
+              child:  Center(
+                child: AutoSizeText(
+                  "© 2023 Yayasan Plan International Indonesia",
+                  style: TextStyle(
+                      fontSize: 12.0,
+                      fontFamily: "Monserrat",
+                      decoration: TextDecoration.none,
+                      color: Colors.white),
+                ),
+              ),
+            ),
+          
+          ]),
+        ),
       ),
     );
   }

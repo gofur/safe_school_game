@@ -128,17 +128,30 @@ class _GameListState extends State<GameList> {
                 ),
                 const SizedBox(height: 8.0,),
                 SizedBox(
-                  child: Expanded(
-                    child: ListView.builder(
-                      // controller: _pageController,
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                      itemCount: appGames.length,
-                      itemBuilder: (context, index) {
-                        return Expanded(child: GameItem(game: appGames[index]));
-                      },
-                    ),
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    itemCount: appGames.length,
+                    itemBuilder: (context, index) {
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          GameItemHorizontal(game: appGames[index]),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 86.0),
+                            child: Container(
+                              color: Colors.grey,
+                              height: 2.0,
+                              width: 240,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 8.0,
+                          )
+                        ],
+                      );
+                    },
                   ),
                 ),
                 const SizedBox(height: 80,)

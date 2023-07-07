@@ -17,7 +17,7 @@ class GameItem extends StatelessWidget {
       child: Container(
         height: 200,
         width: 250,
-        decoration:  BoxDecoration(
+        decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(Radius.circular(20)),
           image: DecorationImage(
             image: AssetImage(
@@ -55,18 +55,16 @@ class GameItem extends StatelessWidget {
                           borderRadius: BorderRadius.all(Radius.circular(20)),
                           color: Color(0xFFE51C8B),
                         ),
-                        child: const Expanded(
-                            child: AutoSizeText(
+                        child: const AutoSizeText(
                           "Main",
                           maxLines: 2,
                           style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: "Monserrat",
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.bold
-                          ),
+                              color: Colors.white,
+                              fontFamily: "Monserrat",
+                              fontSize: 14.0,
+                              fontWeight: FontWeight.bold),
                           textAlign: TextAlign.center,
-                        )),
+                        ),
                       )),
                 ),
                 Row(
@@ -75,8 +73,9 @@ class GameItem extends StatelessWidget {
                     Container(
                       width: 40,
                       height: 40,
-                      decoration:  BoxDecoration(
-                        borderRadius: const BorderRadius.all(Radius.circular(14)),
+                      decoration: BoxDecoration(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(14)),
                         image: DecorationImage(
                           image: AssetImage(
                             game.icon,
@@ -88,12 +87,24 @@ class GameItem extends StatelessWidget {
                     const SizedBox(
                       width: 8.0,
                     ),
-                     Expanded(
-                        child: AutoSizeText(
-                      game.titleIcon,
-                      maxLines: 2,
-                      style: const TextStyle(color: Colors.white),
-                    ))
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          AutoSizeText(
+                            game.title,
+                            maxLines: 2,
+                            style: const TextStyle(color: Colors.white),
+                          ),
+                          AutoSizeText(
+                            game.author,
+                            maxLines: 2,
+                            style: const TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    )
                   ],
                 ),
               ],
@@ -102,5 +113,70 @@ class GameItem extends StatelessWidget {
         ]),
       ),
     );
+  }
+}
+
+class GameItemHorizontal extends StatelessWidget {
+  final Game game;
+  const GameItemHorizontal({Key? key, required this.game}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+      Container(
+        width: 80,
+        height: 80,
+        decoration: BoxDecoration(
+          borderRadius: const BorderRadius.all(Radius.circular(14)),
+          image: DecorationImage(
+            image: AssetImage(
+              game.icon,
+            ),
+            fit: BoxFit.cover,
+          ),
+        ),
+      ),
+      const Padding(padding: EdgeInsets.only(left: 16.0)),
+
+      
+      Expanded(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            AutoSizeText(
+              game.title,
+              maxLines: 2,
+              style: const TextStyle(color: Colors.black),
+            ),
+            AutoSizeText(
+              game.author,
+              maxLines: 2,
+              style: const TextStyle(color: Colors.black),
+            ),
+            
+          ],
+        ),
+      ),
+      
+      Container(
+        width: 60,
+        padding: const EdgeInsets.all(8.0),
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(20)),
+          color: Color(0xFFE51C8B),
+        ),
+        child: const AutoSizeText(
+          "Main",
+          maxLines: 2,
+          style: TextStyle(
+              color: Colors.white,
+              fontFamily: "Monserrat",
+              fontSize: 14.0,
+              fontWeight: FontWeight.bold),
+          textAlign: TextAlign.center,
+        ),
+      ),
+    ]);
   }
 }

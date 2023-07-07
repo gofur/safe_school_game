@@ -36,7 +36,7 @@ class GameList extends StatelessWidget {
                     color: Color(0xFFE51C8B),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.only(top:8.0),
+                    padding: const EdgeInsets.only(top: 8.0),
                     child: AutoSizeText(
                       "Permainan Pilihan".toUpperCase(),
                       style: const TextStyle(
@@ -75,7 +75,8 @@ class GameList extends StatelessWidget {
                   textAlign: TextAlign.left,
                 ),
               ),
-              const Horizontal(),
+              // const Horizontal(),
+              const Center(child: CardGameItem())
             ],
           ),
           Positioned(
@@ -83,7 +84,7 @@ class GameList extends StatelessWidget {
               child: Container(
                   width: MediaQuery.of(context).size.width,
                   height: 60.0,
-                  decoration:  BoxDecoration(
+                  decoration: BoxDecoration(
                     borderRadius: const BorderRadius.only(
                         topRight: Radius.circular(50),
                         topLeft: Radius.circular(50)),
@@ -114,7 +115,6 @@ class GameList extends StatelessWidget {
   }
 }
 
-
 List<String> kDemoImages = [
   'https://i.pinimg.com/originals/7f/91/a1/7f91a18bcfbc35570c82063da8575be8.jpg',
   'https://www.absolutearts.com/portfolio3/a/afifaridasiddique/Still_Life-1545967888l.jpg',
@@ -127,6 +127,144 @@ List<String> kDemoImages = [
   'https://images.mojarto.com/photos/267893/large/DA-SL-01.jpg?1560834975',
 ];
 
+class CardGameItem extends StatelessWidget {
+  const CardGameItem({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Container(
+        padding: const EdgeInsets.all(8.0),
+        child: _buildImageCard(
+            color: const Color(0xFF090943),
+            cardExpiration: "08/2022",
+            cardHolder: "HOUSSEM SELMI",
+            cardNumber: "3546 7532 XXXX 9742"),
+      ),
+    );
+  }
+
+  // Build the credit card widget
+  Card _buildImageCard(
+      {required Color color,
+      required String cardNumber,
+      required String cardHolder,
+      required String cardExpiration}) {
+    return Card(
+      elevation: 4.0,
+      // color: color,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Container(
+        height: 200,
+        width: 250,
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(20)),
+          image: DecorationImage(
+            image: AssetImage(
+              'assets/images/kuki/kuki.png',
+            ),
+            fit: BoxFit.cover,
+          ),
+        ),
+        // padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 22.0),
+        child: Stack(children: [
+          Container(
+              decoration: const BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+            gradient: LinearGradient(
+                colors: [Colors.transparent, Color(0xFFE51C8B)],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                stops: [0.2, 0.8]),
+          )),
+          Padding(
+            padding:
+                const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 10.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(top: 8.0),
+                  child: Align(
+                      alignment: Alignment.topRight,
+                      child: Container(
+                        width: 60,
+                        padding: const EdgeInsets.all(8.0),
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                          color: Color(0xFFE51C8B),
+                        ),
+                        child: const Expanded(
+                            child: AutoSizeText(
+                          "Main",
+                          maxLines: 2,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: "Monserrat",
+                            fontSize: 14.0,
+                            fontWeight: FontWeight.bold
+                          ),
+                          textAlign: TextAlign.center,
+                        )),
+                      )),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      width: 40,
+                      height: 40,
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(14)),
+                        image: DecorationImage(
+                          image: AssetImage(
+                            'assets/images/kuki/kuki.png',
+                          ),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 8.0,
+                    ),
+                    const Expanded(
+                        child: AutoSizeText(
+                      "Belajar Mengenali Bencana Diggo Team",
+                      maxLines: 2,
+                      style: TextStyle(color: Colors.white),
+                    ))
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ]),
+      ),
+    );
+  }
+
+// Build Column containing the cardholder and expiration information
+  Column _buildDetailsBlock({required String label, required String value}) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          label,
+          style: const TextStyle(
+              color: Colors.grey, fontSize: 9, fontWeight: FontWeight.bold),
+        ),
+        Text(
+          value,
+          style: const TextStyle(
+              color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),
+        )
+      ],
+    );
+  }
+}
 
 class Horizontal extends StatefulWidget {
   const Horizontal({Key? key}) : super(key: key);
@@ -171,91 +309,93 @@ class _HorizontalState extends State<Horizontal> {
 
   @override
   Widget build(BuildContext context) {
-    return  Column(
-        children: [
-          const SizedBox(height: 20),
-          SizedBox(
-            height: 200,
-            child: InfiniteCarousel.builder(
-              itemCount: kDemoImages.length,
-              itemExtent: _itemExtent ?? 40,
-              scrollBehavior: kIsWeb
-                  ? ScrollConfiguration.of(context).copyWith(
-                      dragDevices: {
-                        // Allows to swipe in web browsers
-                        PointerDeviceKind.touch,
-                        PointerDeviceKind.mouse
-                      },
-                    )
-                  : null,
-              loop: _loop,
-              controller: _controller,
-              onIndexChanged: (index) {
-                if (_selectedIndex != index) {
-                  setState(() {
-                    _selectedIndex = index;
-                  });
-                }
-              },
-              itemBuilder: (context, itemIndex, realIndex) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                  child: GestureDetector(
+    return Column(
+      children: [
+        const SizedBox(height: 20),
+        SizedBox(
+          height: 200,
+          child: InfiniteCarousel.builder(
+            itemCount: kDemoImages.length,
+            itemExtent: _itemExtent ?? 40,
+            scrollBehavior: kIsWeb
+                ? ScrollConfiguration.of(context).copyWith(
+                    dragDevices: {
+                      // Allows to swipe in web browsers
+                      PointerDeviceKind.touch,
+                      PointerDeviceKind.mouse
+                    },
+                  )
+                : null,
+            loop: _loop,
+            controller: _controller,
+            onIndexChanged: (index) {
+              if (_selectedIndex != index) {
+                setState(() {
+                  _selectedIndex = index;
+                });
+              }
+            },
+            itemBuilder: (context, itemIndex, realIndex) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: GestureDetector(
                     onTap: () {
                       _controller.animateToItem(realIndex);
                     },
-                    child: CachedNetworkImage(imageUrl: kDemoImages[itemIndex], placeholder: (context, url) =>
-                           const SizedBox(height: 6,
-                            child: CircularProgressIndicator()),)
-                  ),
-                );
-              },
-            ),
+                    child: CachedNetworkImage(
+                      imageUrl: kDemoImages[itemIndex],
+                      placeholder: (context, url) => const SizedBox(
+                          height: 6, child: CircularProgressIndicator()),
+                    )),
+              );
+            },
           ),
-          const SizedBox(height: 20),
-          // Text('Current Index: $_selectedIndex'),
-          // SwitchListTile(
-          //   title: const Text('Loop'),
-          //   value: _loop,
-          //   onChanged: (newValue) {
-          //     setState(() {
-          //       _loop = newValue;
-          //     });
-          //   },
-          // ),
-          // const SizedBox(height: 20),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //   children: [
-          //     ElevatedButton.icon(
-          //       label: const Text('Left'),
-          //       icon: const Icon(Icons.arrow_left),
-          //       onPressed: () {
-          //         _controller.previousItem();
-          //       },
-          //     ),
-          //     ElevatedButton.icon(
-          //       label: const Text('Right'),
-          //       icon: const Icon(Icons.arrow_right),
-          //       onPressed: () {
-          //         _controller.nextItem();
-          //       },
-          //     ),
-          //   ],
-          // ),
-          // const SizedBox(height: 30.0),
-          // const Text('Adjustable Item Extent'),
-          // Slider(
-          //   min: 100.0,
-          //   max: screenWidth - 100.0,
-          //   value: _itemExtent ?? 40,
-          //   onChanged: (newValue) {
-          //     setState(() {
-          //       _itemExtent = newValue;
-          //     });
-          //   },
-          // ),
-        ],
-      );
+        ),
+        const SizedBox(height: 20),
+
+        // Text('Current Index: $_selectedIndex'),
+        // SwitchListTile(
+        //   title: const Text('Loop'),
+        //   value: _loop,
+        //   onChanged: (newValue) {
+        //     setState(() {
+        //       _loop = newValue;
+        //     });
+        //   },
+        // ),
+        // const SizedBox(height: 20),
+        // Row(
+        //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        //   children: [
+        //     ElevatedButton.icon(
+        //       label: const Text('Left'),
+        //       icon: const Icon(Icons.arrow_left),
+        //       onPressed: () {
+        //         _controller.previousItem();
+        //       },
+        //     ),
+        //     ElevatedButton.icon(
+        //       label: const Text('Right'),
+        //       icon: const Icon(Icons.arrow_right),
+        //       onPressed: () {
+        //         _controller.nextItem();
+        //       },
+        //     ),
+        //   ],
+        // ),
+        // const SizedBox(height: 30.0),
+        // const Text('Adjustable Item Extent'),
+        // Slider(
+        //   min: 100.0,
+        //   max: screenWidth - 100.0,
+        //   value: _itemExtent ?? 40,
+        //   onChanged: (newValue) {
+        //     setState(() {
+        //       _itemExtent = newValue;
+        //     });
+        //   },
+        // ),
+      ],
+    );
   }
 }

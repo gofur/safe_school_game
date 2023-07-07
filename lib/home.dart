@@ -182,7 +182,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            Padding(
+            const Padding(
               padding: EdgeInsets.symmetric(vertical: 24.0),
               child: Center(
                 child: AutoSizeText(

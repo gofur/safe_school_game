@@ -3,7 +3,7 @@ class Game {
   final String url;
   final String image;
   final String icon;
-  final String? titleIcon;
+  final String titleIcon;
   
   Game({
     required this.url,

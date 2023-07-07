@@ -1,13 +1,23 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:infinite_carousel/infinite_carousel.dart';
+import 'package:safe_school_game/game_item.dart';
+import 'package:safe_school_game/resources/app_games.dart';
 import 'package:safe_school_game/utils/custom_appbar.dart';
 
-class GameList extends StatelessWidget {
+class GameList extends StatefulWidget {
   const GameList({Key? key}) : super(key: key);
+
+  @override
+  State<GameList> createState() => _GameListState();
+}
+
+class _GameListState extends State<GameList> {
+  late PageController _pageController;
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(viewportFraction: 0.8);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -75,8 +85,17 @@ class GameList extends StatelessWidget {
                   textAlign: TextAlign.left,
                 ),
               ),
-              // const Horizontal(),
-              const Center(child: CardGameItem())
+             SizedBox(
+              height: 200,
+              child: PageView.builder(
+                  controller: _pageController,
+                  itemCount: appGames.length,
+                  pageSnapping: true,
+                  itemBuilder: (context, index) {
+                    return GameItem(game: appGames[index]);
+                  },
+                ),
+            ),
             ],
           ),
           Positioned(
@@ -112,144 +131,5 @@ class GameList extends StatelessWidget {
         ]),
       ),
     )));
-  }
-}
-
-class CardGameItem extends StatelessWidget {
-  const CardGameItem({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Container(
-        padding: const EdgeInsets.all(8.0),
-        child: _buildImageCard(
-            color: const Color(0xFF090943),
-            cardExpiration: "08/2022",
-            cardHolder: "HOUSSEM SELMI",
-            cardNumber: "3546 7532 XXXX 9742"),
-      ),
-    );
-  }
-
-  // Build the credit card widget
-  Card _buildImageCard(
-      {required Color color,
-      required String cardNumber,
-      required String cardHolder,
-      required String cardExpiration}) {
-    return Card(
-      elevation: 4.0,
-      // color: color,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Container(
-        height: 200,
-        width: 250,
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(20)),
-          image: DecorationImage(
-            image: AssetImage(
-              'assets/images/kuki/kuki.png',
-            ),
-            fit: BoxFit.cover,
-          ),
-        ),
-        // padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 22.0),
-        child: Stack(children: [
-          Container(
-              decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(20)),
-            gradient: LinearGradient(
-                colors: [Colors.transparent, Color(0xFFE51C8B)],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                stops: [0.2, 0.8]),
-          )),
-          Padding(
-            padding:
-                const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 10.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(top: 8.0),
-                  child: Align(
-                      alignment: Alignment.topRight,
-                      child: Container(
-                        width: 60,
-                        padding: const EdgeInsets.all(8.0),
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                          color: Color(0xFFE51C8B),
-                        ),
-                        child: const Expanded(
-                            child: AutoSizeText(
-                          "Main",
-                          maxLines: 2,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: "Monserrat",
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.bold
-                          ),
-                          textAlign: TextAlign.center,
-                        )),
-                      )),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      width: 40,
-                      height: 40,
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(14)),
-                        image: DecorationImage(
-                          image: AssetImage(
-                            'assets/images/kuki/kuki.png',
-                          ),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 8.0,
-                    ),
-                    const Expanded(
-                        child: AutoSizeText(
-                      "Belajar Mengenali Bencana Diggo Team",
-                      maxLines: 2,
-                      style: TextStyle(color: Colors.white),
-                    ))
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ]),
-      ),
-    );
-  }
-
-// Build Column containing the cardholder and expiration information
-  Column _buildDetailsBlock({required String label, required String value}) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Text(
-          label,
-          style: const TextStyle(
-              color: Colors.grey, fontSize: 9, fontWeight: FontWeight.bold),
-        ),
-        Text(
-          value,
-          style: const TextStyle(
-              color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),
-        )
-      ],
-    );
   }
 }

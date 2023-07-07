@@ -15,7 +15,7 @@ class _HomePageState extends State<HomePage> {
   final GlobalKey<ScaffoldMessengerState> _scaffoldMessengerKey =
       GlobalKey<ScaffoldMessengerState>();
 
-  late ConnectivityResult _connectionStatus;
+
 
   @override
   void initState() {
@@ -29,13 +29,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> initConnectivity() async {
-    final connectivityResult = await Connectivity().checkConnectivity();
-    if (!mounted) {
-      return;
-    }
-    setState(() {
-      _connectionStatus = connectivityResult;
-    });
+    await Connectivity().checkConnectivity();
   }
 
   void _showDialogConnectivity(ConnectivityResult result) {

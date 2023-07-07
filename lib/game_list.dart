@@ -29,74 +29,121 @@ class _GameListState extends State<GameList> {
       ),
       body: Container(
         color: Colors.white,
-        height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: Stack(children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 16.0),
-                child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(50),
-                        bottomRight: Radius.circular(50)),
-                    color: Color(0xFFE51C8B),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 8.0),
-                    child: AutoSizeText(
-                      "Permainan Pilihan".toUpperCase(),
-                      style: const TextStyle(
-                          fontFamily: "Veneer",
-                          color: Colors.white,
-                          fontSize: 30.0,
-                          decoration: TextDecoration.none),
+          SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 16.0),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(50),
+                          bottomRight: Radius.circular(50)),
+                      color: Color(0xFFE51C8B),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 8.0),
+                      child: AutoSizeText(
+                        "Permainan Pilihan".toUpperCase(),
+                        style: const TextStyle(
+                            fontFamily: "Veneer",
+                            color: Colors.white,
+                            fontSize: 30.0,
+                            decoration: TextDecoration.none),
+                      ),
                     ),
                   ),
                 ),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(left: 16.0),
-                child: AutoSizeText(
-                  "Belajar Mengenali Bencana",
-                  style: TextStyle(
-                      fontFamily: "Monserrat",
-                      color: Color(0xFF2D74B6),
-                      fontSize: 24.0,
-                      decoration: TextDecoration.none),
-                  textAlign: TextAlign.left,
+                const Padding(
+                  padding: EdgeInsets.only(left: 16.0),
+                  child: AutoSizeText(
+                    "Belajar Mengenali Bencana",
+                    style: TextStyle(
+                        fontFamily: "Monserrat",
+                        color: Color(0xFF2D74B6),
+                        fontSize: 24.0,
+                        decoration: TextDecoration.none),
+                    textAlign: TextAlign.left,
+                  ),
                 ),
-              ),
-              const SizedBox(
-                height: 8.0,
-              ),
-              const Padding(
-                padding: EdgeInsets.only(left: 16.0),
-                child: AutoSizeText(
-                  "Pelajari bencana melalui peta-peta yang menarik",
-                  style: TextStyle(
-                      fontFamily: "Monserrat",
-                      color: Colors.black,
-                      fontSize: 16.0,
-                      decoration: TextDecoration.none),
-                  textAlign: TextAlign.left,
+                const SizedBox(
+                  height: 8.0,
                 ),
-              ),
-             SizedBox(
-              height: 200,
-              child: PageView.builder(
-                  controller: _pageController,
-                  itemCount: appGames.length,
-                  pageSnapping: true,
-                  itemBuilder: (context, index) {
-                    return GameItem(game: appGames[index]);
-                  },
+                const Padding(
+                  padding: EdgeInsets.only(left: 16.0),
+                  child: AutoSizeText(
+                    "Pelajari bencana melalui peta-peta yang menarik",
+                    style: TextStyle(
+                        fontFamily: "Monserrat",
+                        color: Colors.black,
+                        fontSize: 16.0,
+                        decoration: TextDecoration.none),
+                    textAlign: TextAlign.left,
+                  ),
                 ),
+                const SizedBox(
+                  height: 8.0,
+                ),
+                SizedBox(
+                  height: 200,
+                  child: PageView.builder(
+                    controller: _pageController,
+                    itemCount: appGames.length,
+                    pageSnapping: true,
+                    itemBuilder: (context, index) {
+                      return GameItem(game: appGames[index]);
+                    },
+                  ),
+                ),
+                const SizedBox(
+                  height: 8.0,
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(top: 8.0, left: 16.0, right: 16.0),
+                  child: AutoSizeText(
+                    "Rekomendasi",
+                    style: TextStyle(
+                        fontFamily: "Monserrat",
+                        color: Color(0xFFE51C8B),
+                        fontSize: 24.0,
+                        fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.none),
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(left: 16.0),
+                  child: AutoSizeText(
+                    "Permainan menarik dan juara harapan",
+                    style: TextStyle(
+                        fontFamily: "Monserrat",
+                        color: Colors.black,
+                        fontSize: 16.0,
+                        decoration: TextDecoration.none),
+                    textAlign: TextAlign.left,
+                  ),
+                ),
+                const SizedBox(height: 8.0,),
+                SizedBox(
+                  child: Expanded(
+                    child: ListView.builder(
+                      // controller: _pageController,
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                      itemCount: appGames.length,
+                      itemBuilder: (context, index) {
+                        return Expanded(child: GameItem(game: appGames[index]));
+                      },
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 80,)
+              ],
             ),
-            ],
           ),
           Positioned(
               bottom: 0.0,

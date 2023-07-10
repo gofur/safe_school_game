@@ -142,8 +142,8 @@ class _GameListState extends State<GameList> {
                             padding: const EdgeInsets.only(left: 86.0),
                             child: Container(
                               color: Colors.grey,
-                              height: 2.0,
-                              width: 240,
+                              height: 1.0,
+                              width: MediaQuery.of(context).size.width,
                             ),
                           ),
                           const SizedBox(

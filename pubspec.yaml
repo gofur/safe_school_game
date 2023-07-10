@@ -35,6 +35,9 @@ dependencies:
   connectivity_plus: ^3.0.6
   infinite_carousel: ^1.0.2
   cached_network_image: ^3.2.0
+  webview_flutter: ^2.1.0
+  rxdart: ^0.27.3
+  url_launcher: ^6.1.10
 
 
   # The following adds the Cupertino Icons font to your application.

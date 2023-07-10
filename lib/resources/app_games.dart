@@ -7,7 +7,8 @@ List<Game> appGames = [
       icon: "assets/images/kuki/kuki.png",
       image: "assets/images/kuki/kuki.png",
       author: "Diggo Team",
-      description: "Pelajari macam-macam",
+      description:
+          "Pelajari macam-macam bencana melalui peta-peta yang menarik. Banyak keseruan yang dapat kamu rasakan dengan ilmu pengetahuan terkait bencana tentunya!",
       difficult: "20",
       educationContent: "30",
       shortInformation: "Apa aja deh",
@@ -49,5 +50,4 @@ List<Game> appGames = [
         GameImages(images: "assets/images/kuki/kuki.png"),
         GameImages(images: "assets/images/kuki/kuki.png"),
       ]),
-
 ];

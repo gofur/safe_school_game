@@ -2,22 +2,21 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:safe_school_game/game_detail.dart';
 import 'package:safe_school_game/models/game.dart';
-import 'package:safe_school_game/utils/webview.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+
+Future<void> _launchInWebViewOrVC(Uri url) async {
+  if (!await launchUrl(
+    url,
+    mode: LaunchMode.inAppWebView,
+  )) {
+    throw Exception('Could not launch $url');
+  }
+}
 
 class GameItem extends StatelessWidget {
   final Game game;
   const GameItem({Key? key, required this.game}) : super(key: key);
-
-Future<void> _launchInWebViewOrVC(Uri url) async {
-    if (!await launchUrl(
-      url,
-      mode: LaunchMode.inAppWebView,
-    )) {
-      throw Exception('Could not launch $url');
-    }
-  }
-
 
   @override
   Widget build(BuildContext context) {
@@ -69,11 +68,7 @@ Future<void> _launchInWebViewOrVC(Uri url) async {
                 children: <Widget>[
                   GestureDetector(
                     onTap: (){
-                      // Navigator.of(context).push(MaterialPageRoute(
-                      //   builder: (BuildContext context) =>
-                      //       WebviewScaffold(url: game.url)));
-                        Uri url = Uri.parse(game.url);
-
+                      Uri url = Uri.parse(game.url);
                       _launchInWebViewOrVC(url);
                     },
                     child: Padding(
@@ -192,6 +187,7 @@ class GameItemHorizontal extends StatelessWidget {
                 maxLines: 2,
                 style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
+              const SizedBox(height: 4.0,),
               AutoSizeText(
                 game.author,
                 maxLines: 2,
@@ -202,9 +198,8 @@ class GameItemHorizontal extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (BuildContext context) =>
-                    WebviewScaffold(url: game.url)));
+             Uri url = Uri.parse(game.url);
+            _launchInWebViewOrVC(url);
           },
           child: Container(
             width: 60,

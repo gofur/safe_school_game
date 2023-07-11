@@ -24,7 +24,7 @@ List<Game> appGames = [
       icon: "assets/images/kuki/kuki.png",
       image: "assets/images/kuki/kuki.png",
       author: "Muhammad Alfikri / Diggo Team",
-      description: "Pelajari macam-macam aja",
+      description: "Permainan ini bertujuan untuk mengedukasi pemain dengan konsep belajar sambil bermain kuis edukasi. Dimana di dalam permainan ini terdapat gambaran tampulan, suara, penjelasan dan tindakan pada saat terjadi bencana.",
       difficult: 3,
       educationContent: 5,
       shortInformation: "ok deh",
@@ -35,7 +35,7 @@ List<Game> appGames = [
         GameImages(images: "assets/images/kuki/kuki.png"),
       ]),
   Game(
-      url: 'https://www.google.com',
+      url: 'https://safeschoolgame.inahost.net/kuki/',
       title: "Bencana Alam",
       icon: "assets/images/kuki/kuki.png",
       image: "assets/images/kuki/kuki.png",
@@ -51,7 +51,7 @@ List<Game> appGames = [
         GameImages(images: "assets/images/kuki/kuki.png"),
       ]),
   Game(
-      url: 'https://www.google.com',
+      url: 'https://safeschoolgame.inahost.net/covid19/',
       title: "Pengenalan COVID-19",
       icon: "assets/images/kuki/kuki.png",
       image: "assets/images/kuki/kuki.png",

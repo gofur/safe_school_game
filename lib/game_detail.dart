@@ -4,7 +4,16 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:safe_school_game/models/game.dart';
 import 'package:safe_school_game/utils/custom_appbar.dart';
 import 'package:safe_school_game/utils/footer.dart';
-import 'package:safe_school_game/utils/webview.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+Future<void> _launchInWebViewOrVC(Uri url) async {
+  if (!await launchUrl(
+    url,
+    mode: LaunchMode.inAppWebView,
+  )) {
+    throw Exception('Could not launch $url');
+  }
+}
 
 class GameDetail extends StatefulWidget {
   final Game game;
@@ -38,13 +47,13 @@ class _GameDetailState extends State<GameDetail> {
                     SingleChildScrollView(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Padding(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 16.0, vertical: 16.0),
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              // crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Container(
                                   width: 80,
@@ -79,6 +88,9 @@ class _GameDetailState extends State<GameDetail> {
                                             fontWeight: FontWeight.bold,
                                             fontSize: 16.0),
                                       ),
+                                      const SizedBox(
+                                        height: 4.0,
+                                      ),
                                       Text(
                                         widget.game.author,
                                         maxLines: 2,
@@ -92,13 +104,9 @@ class _GameDetailState extends State<GameDetail> {
                                             const EdgeInsets.only(top: 16.0),
                                         child: GestureDetector(
                                           onTap: () {
-                                            Navigator.of(context).push(
-                                                MaterialPageRoute(
-                                                    builder: (BuildContext
-                                                            context) =>
-                                                        WebviewScaffold(
-                                                            url: widget
-                                                                .game.url)));
+                                            Uri url = Uri.parse(widget.game.url);
+                                            _launchInWebViewOrVC(url);
+
                                           },
                                           child: Container(
                                             width: 60,

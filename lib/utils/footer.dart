@@ -9,7 +9,7 @@ class Footer extends StatelessWidget {
         bottom: 0.0,
         child: Container(
             width: MediaQuery.of(context).size.width,
-            height: 60.0,
+            height: 50.0,
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.only(
                   topRight: Radius.circular(50), topLeft: Radius.circular(50)),
@@ -29,7 +29,7 @@ class Footer extends StatelessWidget {
                 style: TextStyle(
                     fontFamily: "Monserrat",
                     color: Colors.black,
-                    fontSize: 16.0,
+                    fontSize: 14.0,
                     decoration: TextDecoration.none),
                 textAlign: TextAlign.center,
               ),

@@ -190,7 +190,7 @@ class GameItemHorizontal extends StatelessWidget {
               AutoSizeText(
                 game.title,
                 maxLines: 2,
-                style: const TextStyle(color: Colors.black),
+                style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
               AutoSizeText(
                 game.author,

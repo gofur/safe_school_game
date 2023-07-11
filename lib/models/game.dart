@@ -5,8 +5,8 @@ class Game {
   final String title;
   final String author;
   final String description;
-  final String difficult;
-  final String educationContent;
+  final double difficult;
+  final double educationContent;
   final String reference;
   final String shortInformation;
   final List<GameImages> images;

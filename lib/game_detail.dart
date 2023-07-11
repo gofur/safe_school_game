@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:safe_school_game/models/game.dart';
-import 'package:safe_school_game/resources/app_games.dart';
 import 'package:safe_school_game/utils/custom_appbar.dart';
 import 'package:safe_school_game/utils/footer.dart';
 import 'package:safe_school_game/utils/webview.dart';
@@ -181,51 +181,112 @@ class _GameDetailState extends State<GameDetail> {
                             padding:
                                 const EdgeInsets.symmetric(horizontal: 16.0),
                             child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
-                                  widget.game.title,
-                                  maxLines: 2,
-                                  style: const TextStyle(
+                                const Text(
+                                  "Tingkat Kesulitan",
+                                  maxLines: 1,
+                                  style: TextStyle(
                                       color: Colors.black,
                                       fontFamily: "Monserrat",
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16.0),
+                                      fontSize: 14.0),
                                 ),
-                                Text(
-                                  widget.game.author,
-                                  maxLines: 2,
-                                  style: const TextStyle(
-                                      color: Colors.black,
-                                      fontFamily: "Monserrat",
-                                      fontSize: 16.0),
-                                ),
+                                RatingBarIndicator(
+                                    rating: widget.game.difficult,
+                                    itemCount: 5,
+                                    itemSize: 24.0,
+                                    itemBuilder: (context, _) => const Icon(
+                                          Icons.star,
+                                          color: Colors.red,
+                                        )),
                               ],
                             ),
+                          ),
+                          const SizedBox(
+                            height: 8.0,
                           ),
                           Padding(
                             padding:
                                 const EdgeInsets.symmetric(horizontal: 16.0),
                             child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
-                                  widget.game.title,
-                                  maxLines: 2,
-                                  style: const TextStyle(
+                               const Text(
+                                  "Muatan Edukasi",
+                                  maxLines: 1,
+                                  style: TextStyle(
                                       color: Colors.black,
                                       fontFamily: "Monserrat",
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16.0),
+                                      fontSize: 14.0),
                                 ),
-                                Text(
-                                  widget.game.author,
-                                  maxLines: 2,
+                                RatingBarIndicator(
+                                    rating: widget.game.educationContent,
+                                    itemCount: 5,
+                                    itemSize: 24.0,
+                                    itemBuilder: (context, _) => const Icon(
+                                          Icons.star,
+                                          color: Colors.red,
+                                        )),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 8.0,
+                          ),
+                          Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 16.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                 const Text(
+                                  "Informasi Permainan",
+                                  maxLines: 1,
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontFamily: "Monserrat",
+                                      fontSize: 14.0),
+                                ),
+                                 Text(
+                                  widget.game.shortInformation,
+                                  maxLines: 1,
                                   style: const TextStyle(
                                       color: Colors.black,
                                       fontFamily: "Monserrat",
-                                      fontSize: 16.0),
+                                      fontSize: 14.0),
                                 ),
                               ],
                             ),
+                          ),
+                          const SizedBox(height: 8.0,),
+                          Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 16.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                 const Text(
+                                  "Referensi",
+                                  maxLines: 1,
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontFamily: "Monserrat",
+                                      fontSize: 14.0),
+                                ),
+                                Text(
+                                  widget.game.reference,
+                                  maxLines: 1,
+                                  style: const TextStyle(
+                                      color: Colors.black,
+                                      fontFamily: "Monserrat",
+                                      fontSize: 14.0),
+                                ),
+                              ],
+                            ),
+                          ),
+                          
+                          const SizedBox(
+                            height: 100,
                           )
                         ],
                       ),

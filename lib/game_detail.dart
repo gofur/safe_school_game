@@ -132,14 +132,6 @@ class _GameDetailState extends State<GameDetail> {
                                     ],
                                   ),
                                 ),
-                                const Align(
-                                  alignment: Alignment.bottomRight,
-                                  child: Icon(
-                                    Icons.share,
-                                    color: Colors.grey,
-                                    size: 30.0,
-                                  ),
-                                ),
                               ],
                             ),
                           ),
@@ -237,62 +229,7 @@ class _GameDetailState extends State<GameDetail> {
                                         )),
                               ],
                             ),
-                          ),
-                          const SizedBox(
-                            height: 8.0,
-                          ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 16.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                 const Text(
-                                  "Informasi Permainan",
-                                  maxLines: 1,
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontFamily: "Monserrat",
-                                      fontSize: 14.0),
-                                ),
-                                 Text(
-                                  widget.game.shortInformation,
-                                  maxLines: 1,
-                                  style: const TextStyle(
-                                      color: Colors.black,
-                                      fontFamily: "Monserrat",
-                                      fontSize: 14.0),
-                                ),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(height: 8.0,),
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 16.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                 const Text(
-                                  "Referensi",
-                                  maxLines: 1,
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontFamily: "Monserrat",
-                                      fontSize: 14.0),
-                                ),
-                                Text(
-                                  widget.game.reference,
-                                  maxLines: 1,
-                                  style: const TextStyle(
-                                      color: Colors.black,
-                                      fontFamily: "Monserrat",
-                                      fontSize: 14.0),
-                                ),
-                              ],
-                            ),
-                          ),
-                          
+                          ),  
                           const SizedBox(
                             height: 100,
                           )

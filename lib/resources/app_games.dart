@@ -8,11 +8,9 @@ List<Game> appGames = [
       image: "assets/images/kuki/kuki.png",
       author: "Achmad Mustofa and Team",
       description:
-          "Pelajari macam-macam bencana melalui peta-peta yang menarik. Banyak keseruan yang dapat kamu rasakan dengan ilmu pengetahuan terkait bencana tentunya!",
-      difficult: 4,
-      educationContent: 3,
-      shortInformation: "Apa aja deh",
-      reference: "bla bla",
+          "Sie Gemz merupakan media pembelajaran antisipasi gempa bumi untuk anak usia 6-12 tahun. Permainan ini memberikan pendidikan yang efektif dan menyenangkan untuk anak-anak dalam mengdapi ancaman gempa bumi dengan tujuan dengan memahami apa itu gempa, bahaya dan apa yang bisa dilakukan jika terjadi gempa, anak-anak akan merasa lebih siap dan percaya diri dalam menghadapi situasi darurat.",
+      difficult: 5,
+      educationContent: 5,
       images: [
         GameImages(images: "assets/images/kuki/kuki.png"),
         GameImages(images: "assets/images/kuki/kuki.png"),
@@ -20,15 +18,14 @@ List<Game> appGames = [
       ]),
   Game(
       url: 'https://www.google.com',
-      title: "Belajar Mengenali Bencana",
+      title: "Diggo - Belajar Mengenali Bencana",
       icon: "assets/images/kuki/kuki.png",
       image: "assets/images/kuki/kuki.png",
-      author: "Muhammad Alfikri / Diggo Team",
-      description: "Permainan ini bertujuan untuk mengedukasi pemain dengan konsep belajar sambil bermain kuis edukasi. Dimana di dalam permainan ini terdapat gambaran tampulan, suara, penjelasan dan tindakan pada saat terjadi bencana.",
-      difficult: 3,
+      author: "Muhammad Alfikri",
+      description:
+          "Permainan ini bertujuan untuk mengedukasi pemain dengan konsep belajar sambil bermain kuis edukasi. Dimana di dalam permainan ini terdapat gambaran tampulan, suara, penjelasan dan tindakan pada saat terjadi bencana.",
+      difficult: 2.4,
       educationContent: 5,
-      shortInformation: "ok deh",
-      reference: "bla bla",
       images: [
         GameImages(images: "assets/images/kuki/kuki.png"),
         GameImages(images: "assets/images/kuki/kuki.png"),
@@ -36,15 +33,14 @@ List<Game> appGames = [
       ]),
   Game(
       url: 'https://safeschoolgame.inahost.net/kuki/',
-      title: "Bencana Alam",
+      title: "Bencana Alam Bersama Kuki",
       icon: "assets/images/kuki/kuki.png",
       image: "assets/images/kuki/kuki.png",
       author: "Prasista Nasya Zerlinda",
-      description: "Pelajari macam-macam aja",
-      difficult: 1,
-      educationContent: 2.5,
-      shortInformation: "sip coy",
-      reference: "dasdmad",
+      description:
+          "Permainan edukasi Bencana Alam ini merupakan sarana untuk mengenalkan kewaspadaan bencana alam kepada anak usia dini. Selain itu permainan ini juga merupakan upaya pemanfaatan gadget secara maksimal untuk anak usia dini. ",
+      difficult: 2.5,
+      educationContent: 5,
       images: [
         GameImages(images: "assets/images/kuki/kuki.png"),
         GameImages(images: "assets/images/kuki/kuki.png"),
@@ -56,11 +52,10 @@ List<Game> appGames = [
       icon: "assets/images/kuki/kuki.png",
       image: "assets/images/kuki/kuki.png",
       author: "Ahmad Mustofa",
-      description: "Pelajari macam-macam aja",
-      difficult: 1,
-      educationContent: 2.5,
-      shortInformation: "sip coy",
-      reference: "dasdmad",
+      description:
+          "Pandemi COVID-19 yang terjadi membuat semua orang untuk memulai kebiasaan baru, hal ini yang menjadi dasar dibuatnya permainan Pengenalan COVID-19. Melalui permainan dan lagu, anak-anak diharapkan bisa belajar serta merasa terhibur dengan permainan ini. Selain itu permainan ini sangat membantu untuk mengisi waktu luang dengan belajar. ",
+      difficult: 2.6,
+      educationContent: 3,
       images: [
         GameImages(images: "assets/images/kuki/kuki.png"),
         GameImages(images: "assets/images/kuki/kuki.png"),
@@ -68,15 +63,29 @@ List<Game> appGames = [
       ]),
   Game(
       url: 'https://www.google.com',
-      title: "Flappy Pirate Wow",
+      title: "Flappy Pirate",
       icon: "assets/images/kuki/kuki.png",
       image: "assets/images/kuki/kuki.png",
       author: "Della Puspita Ramadhani",
-      description: "Pelajari macam-macam aja",
-      difficult: 1,
-      educationContent: 2.5,
-      shortInformation: "sip coy",
-      reference: "dasdmad",
+      description:
+          "Happy Pirate Wow adalah permainan yang mengandalkan ketangkasan dimana anak-anak diajak untuk bermain dengan menghindari ancaman yang akan dihadapi oleh pemain di dalam permainan. Dengan tujuan agar anak-anak belajar untuk mengenali bencana yang perlu mereka hindari. ",
+      difficult: 5,
+      educationContent: 2,
+      images: [
+        GameImages(images: "assets/images/kuki/kuki.png"),
+        GameImages(images: "assets/images/kuki/kuki.png"),
+        GameImages(images: "assets/images/kuki/kuki.png"),
+      ]),
+  Game(
+      url: 'https://www.google.com',
+      title: "Flying Chicken",
+      icon: "assets/images/kuki/kuki.png",
+      image: "assets/images/kuki/kuki.png",
+      author: "Dicky Fernando Sitepu",
+      description:
+          "Happy Pirate Wow adalah permainan yang mengandalkan ketangkasan dimana anak-anak diajak untuk bermain dengan menghindari ancaman yang akan dihadapi oleh pemain di dalam permainan. Dengan tujuan agar anak-anak belajar untuk mengenali bencana yang perlu mereka hindari. ",
+      difficult: 5,
+      educationContent: 3,
       images: [
         GameImages(images: "assets/images/kuki/kuki.png"),
         GameImages(images: "assets/images/kuki/kuki.png"),

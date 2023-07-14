@@ -7,8 +7,6 @@ class Game {
   final String description;
   final double difficult;
   final double educationContent;
-  final String reference;
-  final String shortInformation;
   final List<GameImages> images;
 
   Game(
@@ -20,8 +18,6 @@ class Game {
       required this.description,
       required this.difficult,
       required this.educationContent,
-      required this.reference,
-      required this.shortInformation,
       required this.images});
 }
 

@@ -93,19 +93,4 @@ List<Game> appGames = [
         GameImages(images: "assets/images/flappy/Image2.jpg"),
         GameImages(images: "assets/images/flappy/Image3.jpg"),
       ]),
-  Game(
-      url: 'https://www.google.com',
-      title: "Flying Chicken",
-      icon: "assets/images/kuki/Image3.jpg",
-      image: "assets/images/kuki/Image3.jpg",
-      author: "Dicky Fernando Sitepu",
-      description:
-          "Happy Pirate Wow adalah permainan yang mengandalkan ketangkasan dimana anak-anak diajak untuk bermain dengan menghindari ancaman yang akan dihadapi oleh pemain di dalam permainan. Dengan tujuan agar anak-anak belajar untuk mengenali bencana yang perlu mereka hindari. ",
-      difficult: 5,
-      educationContent: 3,
-      images: [
-        GameImages(images: "assets/images/kuki/Image3.jpg"),
-        GameImages(images: "assets/images/kuki/Image3.jpg"),
-        GameImages(images: "assets/images/kuki/Image3.jpg"),
-      ]),
 ];

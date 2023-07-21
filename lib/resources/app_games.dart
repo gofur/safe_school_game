@@ -2,7 +2,7 @@ import 'package:safe_school_game/models/game.dart';
 
 List<Game> appGames = [
   Game(
-      url: 'https://simmer.io/@Pakqori/belajar-mengenali-bencana-diggo',
+      url: 'https://safeschoolgame.inahost.net/siegemz',
       title: "Sie Gemz",
       icon: "assets/images/siegemz/Image1.jpg",
       image: "assets/images/siegemz/Image1.jpg",
@@ -24,7 +24,7 @@ List<Game> appGames = [
         GameImages(images: "assets/images/siegemz/Image10.jpg"),
       ]),
   Game(
-      url: 'https://www.google.com',
+      url: 'https://safeschoolgame.inahost.net/diggo',
       title: "Diggo - Belajar Mengenali Bencana",
       icon: "assets/images/diggo/Image1.jpg",
       image: "assets/images/diggo/Image1.jpg",
@@ -42,7 +42,7 @@ List<Game> appGames = [
         GameImages(images: "assets/images/diggo/Image6.jpg"),
       ]),
   Game(
-      url: 'https://safeschoolgame.inahost.net/kuki/',
+      url: 'https://safeschoolgame.inahost.net/kuki',
       title: "Bencana Alam Bersama Kuki",
       icon: "assets/images/kuki/Image3.jpg",
       image: "assets/images/kuki/Image3.jpg",
@@ -62,7 +62,7 @@ List<Game> appGames = [
         GameImages(images: "assets/images/kuki/Image10.jpg"),
       ]),
   Game(
-      url: 'https://safeschoolgame.inahost.net/covid19/',
+      url: 'https://safeschoolgame.inahost.net/covid19',
       title: "Pengenalan COVID-19",
       icon: "assets/images/covid/Image1.jpg",
       image: "assets/images/covid/Image1.jpg",
@@ -79,7 +79,7 @@ List<Game> appGames = [
         GameImages(images: "assets/images/covid/Image5.jpg"),
       ]),
   Game(
-      url: 'https://www.google.com',
+      url: 'https://safeschoolgame.inahost.net/flappy',
       title: "Flappy Pirate",
       icon: "assets/images/flappy/Image1.jpg",
       image: "assets/images/flappy/Image1.jpg",

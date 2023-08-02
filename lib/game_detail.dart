@@ -9,7 +9,7 @@ import 'package:url_launcher/url_launcher.dart';
 Future<void> _launchInWebViewOrVC(Uri url) async {
   if (!await launchUrl(
     url,
-    mode: LaunchMode.inAppWebView,
+    mode: LaunchMode.externalApplication,
   )) {
     throw Exception('Could not launch $url');
   }
@@ -227,6 +227,34 @@ class _GameDetailState extends State<GameDetail> {
                                           Icons.star,
                                           color: Colors.red,
                                         )),
+                              ],
+                            ),
+                          ),  
+                          const SizedBox(
+                            height: 8.0,
+                          ),
+                          Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 16.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                const Text(
+                                  "Kelompok Usia",
+                                  maxLines: 1,
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontFamily: "Monserrat",
+                                      fontSize: 14.0),
+                                ),
+                                 Text(
+                                  widget.game.ageUse,
+                                  maxLines: 1,
+                                  style: const TextStyle(
+                                      color: Colors.black,
+                                      fontFamily: "Monserrat",
+                                      fontSize: 14.0),
+                                ),
                               ],
                             ),
                           ),  

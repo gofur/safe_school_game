@@ -7,6 +7,7 @@ class Game {
   final String description;
   final double difficult;
   final double educationContent;
+  final String ageUse;
   final List<GameImages> images;
 
   Game(
@@ -18,6 +19,7 @@ class Game {
       required this.description,
       required this.difficult,
       required this.educationContent,
+      required this.ageUse,
       required this.images});
 }
 

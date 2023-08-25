@@ -96,7 +96,7 @@ android {
             dimension 'env'
             resValue 'string', 'app_name', 'SafeSchoolGame'
             ndk.abiFilters 'armeabi-v7a'
-            minSdkVersion 18
+            minSdkVersion 19
         }
         dev {
             dimension 'env'
